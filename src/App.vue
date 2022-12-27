@@ -43,6 +43,7 @@
       </template>
 
       <hr v-if="tickers.length" class="w-full border-t border-gray-600 my-4" />
+
       <section class="relative" v-if="selectedTicker">
         <h3 class="text-lg leading-6 font-medium text-gray-900 my-8">
           {{ selectedTicker.name }} - USD
@@ -82,6 +83,7 @@
           </svg>
         </button>
       </section>
+
     </div>
   </div>
 </template>
@@ -225,7 +227,7 @@ export default {
 
       this.tickers = [...this.tickers, currentTicker];
       this.filter="";
-      subscribeToTicker(this.ticker.name, (newPrice) => this.updateTicker(this.ticker.name, newPrice));
+      subscribeToTicker(currentTicker.name, (newPrice) => this.updateTicker(currentTicker.name, newPrice));
 
       localStorage.setItem("cryptonomicon-list", JSON.stringify(this.tickers));
     },

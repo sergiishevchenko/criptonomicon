@@ -59,12 +59,14 @@ export default {
         };
     },
 
-    add() {
-        if (this.ticker.length === 0) {
-            return;
-        }
-        this.$emit("add-ticker", this.ticker)
-        this.ticker = "";
-    },
+    methods: {
+        add() {
+            if (this.ticker.length === 0) {
+                return;
+            }
+            this.$emit("add-ticker", this.ticker)
+            this.ticker = "";
+        },
+    }
 };
 </script>
