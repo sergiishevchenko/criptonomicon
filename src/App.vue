@@ -219,7 +219,10 @@ export default {
   methods: {
     updateTicker(tickerName, price) {
       this.tickers.filter(t => t.name === tickerName).forEach(t => {
-        t.price = price
+        if (t === this.selectedTicker) {
+          this.graph.push(price);
+        }
+        t.price = price;
       })
     },
 
